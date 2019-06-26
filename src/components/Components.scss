@@ -1,0 +1,26 @@
+.searchBox {
+    background-color: #FFE600;
+    padding: 2%;
+    .searchBoxInput {
+        font-size: 18px;  
+        outline:none !important;
+        outline-width: 0 !important;
+        border: none;
+        box-shadow: none;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none; 
+    }
+    .lensButton {
+        background-color: #EEEEEE;
+        border: none;
+        color: #333333;
+        outline:none !important;
+        outline-width: 0 !important;
+        -moz-box-shadow: none;
+        -webkit-box-shadow: none; 
+    }
+}
+
+.containerDashboard {
+    background-color: #EEEEEE;
+}
