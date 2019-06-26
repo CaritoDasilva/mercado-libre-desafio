@@ -1,3 +1,4 @@
+const getProducts = require('./controllers/conectionApi')
 require('./config/config');
 
 const express = require('express');
@@ -14,15 +15,16 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/api', (req, res) => {
-    const carito = {
-        "contextura": "rellenita",
-        "nacionalidad": "venezolana",
-        "hobbies": "leer",
-        "edad": 37,
-        "url": "/"
+app.get('/products/:product', async (req, res) => {
+    try {
+        const { product } = req.params;
+        const products = await getProducts(product)
+        return res.send(products)
+
     }
-    res.json(carito);
+    catch (error) {
+        res.status(400).json(console.log(error))
+    }
 });
 
 app.listen(port, () => console.log(`Aplicación corriendo en el puerto ${port}`));
