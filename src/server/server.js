@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }))
 // parse application/json
 app.use(bodyParser.json())
 
-app.get('/usuario', (req, res) => {
+app.get('/api', (req, res) => {
     const carito = {
         "contextura": "rellenita",
         "nacionalidad": "venezolana",
