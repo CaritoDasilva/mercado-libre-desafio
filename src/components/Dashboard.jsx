@@ -7,14 +7,32 @@ import './Components.scss'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
 //Redux 
-import { Provider } from 'react-redux'
+import { connect, Provider } from 'react-redux'
 import store from '../store'
-
+import { getProducts, showProducts } from '../actions/productsActions'
 //Bootstrap
-import { Row, Col, InputGroup, FormControl, Button } from 'react-bootstrap'
+import { Row, Col, InputGroup, FormControl, Button, Form } from 'react-bootstrap'
 
 
-export default class Dashboard extends Component {
+class Dashboard extends Component {
+
+    componentDidMount() {
+        this.props.showProducts()
+
+    }
+
+
+
+    handleSubmit(event) {
+        event.preventDefault();
+        console.log(this.props)
+        const data = new FormData(event.target);
+        const [value] = data.get('searchBox')
+        console.log(value)
+        alert(`A name was submitted: ${value}`);
+        this.props.getProducts(value)
+    }
+
     render() {
         return (
             <Provider store={store}>
@@ -26,16 +44,19 @@ export default class Dashboard extends Component {
                                     <img src={logo} alt="logo" />
                                 </Col>
                                 <Col md={8}>
-                                    <InputGroup className="mb-3 searchBoxInput">
-                                        <FormControl className="searchBoxInput"
-                                            placeholder="Nunca dejes de buscar"
-                                            aria-label="Nunca dejes de buscar"
-                                            aria-describedby="basic-addon2"
-                                        />
-                                        <InputGroup.Append>
-                                            <Button variant="outline-secondary" className="lensButton"><img src={lens} alt="lens" /></Button>
-                                        </InputGroup.Append>
-                                    </InputGroup>
+                                    <Form onSubmit={() => this.handleSubmit()}>
+                                        <InputGroup className="mb-3 searchBoxInput">
+                                            <FormControl className="searchBoxInput"
+                                                placeholder="Nunca dejes de buscar"
+                                                aria-label="Nunca dejes de buscar"
+                                                aria-describedby="basic-addon2"
+                                                name="searchBox"
+                                            />
+                                            <InputGroup.Append>
+                                                <Button variant="outline-secondary" type="submit" value="submit" onSubmit={this.handleSubmit.bind(this)} className="lensButton"><img src={lens} alt="lens" /></Button>
+                                            </InputGroup.Append>
+                                        </InputGroup>
+                                    </Form>
                                 </Col>
                             </Row>
 
@@ -52,3 +73,9 @@ export default class Dashboard extends Component {
         )
     }
 }
+
+const mapStateToProps = state => ({
+    products: state.products.products
+})
+
+export default connect(mapStateToProps, { getProducts, showProducts })(Dashboard)
