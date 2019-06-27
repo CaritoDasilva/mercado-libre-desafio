@@ -1,13 +1,13 @@
 const getProducts = require('./controllers/conectionApi')
 require('./config/config');
-
 const express = require('express');
-
+const cors = require('cors')
 const app = express();
+const port = process.env.PORT || 8080
 
+//Middleware
 const bodyParser = require('body-parser')
 
-const port = process.env.PORT || 8080
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }))
