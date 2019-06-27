@@ -2,7 +2,6 @@ import { GET_PRODUCTS, SHOW_PRODUCTS } from './types'
 import axios from 'axios';
 
 
-const proxyurl = 'https://cors-anywhere.herokuapp.com/'
 export const getProducts = (product) => async dispatch => {
     try {
         debugger
