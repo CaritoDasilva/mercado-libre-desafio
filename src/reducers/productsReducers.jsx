@@ -1,8 +1,10 @@
-import { GET_PRODUCTS, SHOW_PRODUCTS } from '../actions/types'
+import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM } from '../actions/types'
 
 const initialState = {
     products: [],
-    searchBox: ''
+    searchBox: '',
+    item: {},
+    itemId: ''
 }
 
 export default function (state = initialState, action) {
@@ -15,7 +17,21 @@ export default function (state = initialState, action) {
         case SHOW_PRODUCTS:
             return {
                 ...state,
-                products: action.payload
+            }
+        case CHANGE_SEARCHBOX:
+            return {
+                ...state,
+                searchBox: action.payload
+            }
+        case SHOW_ITEM:
+            return {
+                ...state,
+                item: action.payload
+            }
+        case SET_ITEM:
+            return {
+                ...state,
+                itemId: action.payload
             }
         default:
             return state;

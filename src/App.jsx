@@ -2,7 +2,7 @@ import React from 'react';
 import Dashboard from './components/Dashboard'
 
 //Redux 
-import { connect, Provider } from 'react-redux'
+import { Provider } from 'react-redux'
 import store from './store'
 
 function App() {

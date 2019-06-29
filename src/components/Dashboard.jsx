@@ -9,28 +9,34 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 //Redux 
 import { connect, Provider } from 'react-redux'
 import store from '../store'
-import { getProducts, showProducts } from '../actions/productsActions'
+import { getProducts, showProducts, changeSearchBoxValue } from '../actions/productsActions'
+
 //Bootstrap
-import { Row, Col, InputGroup, FormControl, Button, Form } from 'react-bootstrap'
+import { Row, Col, InputGroup, FormControl, Button, Form, Breadcrumb } from 'react-bootstrap'
 
 
 class Dashboard extends Component {
 
     componentDidMount() {
-        this.props.showProducts()
+        this.props.getProducts()
+    }
 
+    searchBoxValue = e => {
+        console.log(e.target.value)
+        this.props.changeSearchBoxValue(e.target.value)
     }
 
 
-
-    handleSubmit(event) {
-        event.preventDefault();
+    doTheSearch = (e) => {
+        e.preventDefault()
         console.log(this.props)
-        const data = new FormData(event.target);
-        const [value] = data.get('searchBox')
-        console.log(value)
-        alert(`A name was submitted: ${value}`);
-        this.props.getProducts(value)
+        let { searchBox } = this.props.products
+        console.log(searchBox)
+        if (searchBox.length !== 0) {
+            searchBox = searchBox.replace(/ /g, "")
+            this.props.getProducts(searchBox)
+            return this.props.changeSearchBoxValue('')
+        }
     }
 
     render() {
@@ -44,23 +50,31 @@ class Dashboard extends Component {
                                     <img src={logo} alt="logo" />
                                 </Col>
                                 <Col md={8}>
-                                    <Form onSubmit={() => this.handleSubmit()}>
+                                    <Form onSubmit={this.doTheSearch}>
                                         <InputGroup className="mb-3 searchBoxInput">
                                             <FormControl className="searchBoxInput"
                                                 placeholder="Nunca dejes de buscar"
                                                 aria-label="Nunca dejes de buscar"
                                                 aria-describedby="basic-addon2"
+                                                value={this.props.products.searchBox}
+                                                onChange={this.searchBoxValue}
                                                 name="searchBox"
                                             />
                                             <InputGroup.Append>
-                                                <Button variant="outline-secondary" type="submit" value="submit" onSubmit={this.handleSubmit.bind(this)} className="lensButton"><img src={lens} alt="lens" /></Button>
+                                                <Button variant="outline-secondary" type="submit" value="submit" className="lensButton"><img src={lens} alt="lens" /></Button>
                                             </InputGroup.Append>
                                         </InputGroup>
                                     </Form>
                                 </Col>
                             </Row>
-
                         </header>
+
+                        <Breadcrumb bsstyle="default" >
+                            {this.props.products.products.length === 0 ? null : this.props.products.products.categories.path_from_root.map(item =>
+                                <Breadcrumb.Item href="#" key={item.id}>{item.name}</Breadcrumb.Item>
+                            )}
+                        </Breadcrumb>
+
                         <div className="containerDashboard">
                             <Switch>
                                 <Route exact path="/" component={Products}></Route>
@@ -75,7 +89,7 @@ class Dashboard extends Component {
 }
 
 const mapStateToProps = state => ({
-    products: state.products.products
+    products: state.products
 })
 
-export default connect(mapStateToProps, { getProducts, showProducts })(Dashboard)
+export default connect(mapStateToProps, { getProducts, showProducts, changeSearchBoxValue })(Dashboard)

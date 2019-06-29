@@ -1,6 +1,6 @@
 .searchBox {
     background-color: #FFE600;
-    padding: 2%;
+    padding-top: 2%;
     .searchBoxInput {
         font-size: 18px;  
         outline:none !important;
@@ -24,3 +24,84 @@
 .containerDashboard {
     background-color: #EEEEEE;
 }
+
+.product.Container {
+}
+.colContainer {
+}
+.rowContainer{
+    background-color: #FFFFFF;
+    padding-top: 32px;
+    color: #333333;
+    .productPicture {
+        width: 180px;
+        height: 180px;
+        border-radius: 4px;            
+     }
+    li{
+        list-style: none;  
+    }
+
+    .productPrice {
+        font-size: 24px;
+        margin-left: 16px;
+    }
+    .productTitle {
+        font-size: 18px;
+        margin-left: 16px;
+    }
+   
+    .productCity {
+        font-size: 12px;
+    }
+}
+
+.priceProductContainer{
+    margin-left: 5%;
+}
+
+a:link 
+{ 
+    text-decoration:none; 
+} 
+
+.breadcrumb {
+border-radius: 0;
+background-color: #EEEEEE;
+padding-top: 16px;
+margin-bottom: 0;
+font-size: 14px;
+}
+
+ol.breadcrumb {
+    padding-left: 8vw;
+}
+
+.photoDescription {
+    width: 680px;
+    height: 680px;
+}
+
+.conditionDescription {
+    margin-top: 32px;
+    font-size: 14px;
+}
+
+.conditionTitle {
+    margin-top: 16px;
+    font-size: 24px;
+}
+
+.conditionAmount {
+    margin-top: 32px;
+    font-size: 46px;
+}
+
+.descritpionText{
+    font-size: 28px;
+    margin-bottom: 32px;
+    margin-left: 32px;
+}
+.textPlain {
+            font-size: 16px;
+ }

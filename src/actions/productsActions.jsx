@@ -1,25 +1,25 @@
-import { GET_PRODUCTS, SHOW_PRODUCTS } from './types'
+import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM } from './types'
 import axios from 'axios';
 
 
 export const getProducts = (product) => async dispatch => {
     try {
-        debugger
-        const url = `https://localhost:8080/products/${product}`
+        if (product === undefined) {
+            product = 'mesa'
+        }
+        const url = `http://localhost:8080/products/${product}`
         const response = await axios({
             method: 'get',
             baseURL: url,
-
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
         })
-        const responseJson = await response.json()
-        console.log(responseJson)
+        const { data } = await response
         dispatch({
             type: GET_PRODUCTS,
-            payload: responseJson
+            payload: data
         })
     }
     catch (error) {
@@ -27,35 +27,44 @@ export const getProducts = (product) => async dispatch => {
     }
 }
 
-export const showProducts = () => async dispatch => {
+export const showProducts = () => {
+    return {
+        type: SHOW_PRODUCTS,
+    }
+}
+
+export const changeSearchBoxValue = (value) => {
+    return {
+        type: CHANGE_SEARCHBOX,
+        payload: value
+    }
+}
+
+export const getItemDetail = (id) => async dispatch => {
     try {
-        debugger
-        const url = `http://localhost:8080/products/mesa`
+        const url = `http://localhost:8080/${id}/description`
         const response = await axios({
             method: 'get',
             baseURL: url,
-
             mode: 'cors',
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
-            // url: '/login/authentication',
-            // data: {
-            //     email: email,
-            //     password: password
-            // }
         })
-
-
         const { data } = await response
-        console.log(data)
         dispatch({
-            type: SHOW_PRODUCTS,
+            type: SHOW_ITEM,
             payload: data
         })
     }
     catch (error) {
-        console.log(error)
+        throw error
     }
 }
 
+export const setItemDetail = (id) => {
+    return {
+        type: SET_ITEM,
+        payload: id
+    }
+}
