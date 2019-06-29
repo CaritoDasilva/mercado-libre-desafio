@@ -33,33 +33,35 @@ class Item extends Component {
                         <Row className="productContainer">
                             <Col className="productContainer" md={{ span: 10, offset: 1 }}>
                                 <Row className="rowContainer">
-                                    <Col md={6}>
-                                        <img className="photoDescription" src={item.picture} alt="" />
-                                    </Col>
-                                    <Col md={{ span: 3, offset: 1 }}>
-                                        <Row>
-                                            <Col className="conditionDescription">
-                                                {itemCondition}
-                                                <span> - </span>
-                                                {item.sold_quantity}
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className="conditionTitle">
-                                                {item.title}
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col className="conditionAmount">
-                                                ${item.price.amount}
-                                            </Col>
-                                        </Row>
-                                        <Row>
-                                            <Col md={12}>
-                                                <Button variant="primary" size="lg" block>Comprar</Button>
-                                            </Col>
-                                        </Row>
-                                    </Col>
+                                    <Row>
+                                        <Col md={{ span: 6, offset: 1 }}>
+                                            <img className="photoDescription" src={item.picture} alt="" />
+                                        </Col>
+                                        <Col md={{ span: 3, offset: 1 }}>
+                                            <Row>
+                                                <Col className="conditionDescription">
+                                                    {itemCondition}
+                                                    <span> - </span>
+                                                    {item.sold_quantity}
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col className="conditionTitle">
+                                                    {item.title}
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col className="conditionAmount">
+                                                    ${item.price.amount}
+                                                </Col>
+                                            </Row>
+                                            <Row>
+                                                <Col md={12}>
+                                                    <Button variant="primary" size="lg" block>Comprar</Button>
+                                                </Col>
+                                            </Row>
+                                        </Col>
+                                    </Row>
                                     <Row>
                                         <Col md={7} className="descritpionText">
                                             Descripción del texto
