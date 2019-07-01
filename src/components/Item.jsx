@@ -34,7 +34,7 @@ class Item extends Component {
                             <Col className="productContainer" md={{ span: 10, offset: 1 }}>
                                 <Row className="rowContainer">
                                     <Row>
-                                        <Col md={{ span: 6, offset: 1 }}>
+                                        <Col md={6}>
                                             <img className="photoDescription" src={item.picture} alt="" />
                                         </Col>
                                         <Col md={{ span: 3, offset: 1 }}>
@@ -57,7 +57,7 @@ class Item extends Component {
                                             </Row>
                                             <Row>
                                                 <Col md={12}>
-                                                    <Button variant="primary" size="lg" block>Comprar</Button>
+                                                    <Button className="buyButton" variant="primary" size="lg" block>Comprar</Button>
                                                 </Col>
                                             </Row>
                                         </Col>
