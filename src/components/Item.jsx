@@ -42,7 +42,7 @@ class Item extends Component {
                                                 <Col className="conditionDescription">
                                                     {itemCondition}
                                                     <span> - </span>
-                                                    {item.sold_quantity}
+                                                    {item.sold_quantity} vendidos
                                                 </Col>
                                             </Row>
                                             <Row>
