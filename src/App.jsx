@@ -5,13 +5,23 @@ import Dashboard from './components/Dashboard'
 import { Provider } from 'react-redux'
 import store from './store'
 
+//Router
+import { Router } from 'react-router-dom'
+import { createBrowserHistory } from "history";
+
+const customHistory = createBrowserHistory();
+
+
+
 function App() {
   return (
 
     <Provider store={store}>
-      <div className="App">
-        <Dashboard />
-      </div>
+      <Router history={customHistory}>
+        <div className="App">
+          <Dashboard />
+        </div>
+      </Router>
     </Provider>
   );
 }

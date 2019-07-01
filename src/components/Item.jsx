@@ -19,13 +19,9 @@ class Item extends Component {
     render() {
         if (this.props.products.item.item === undefined) {
             return null
-            // const { picture } = item.picture
-
         }
         const { item } = this.props.products.item
         const itemCondition = (item.condition[0].toUpperCase()) + item.condition.slice(1, item.condition.length)
-        console.log(item)
-        console.log(item.picture)
         return (
             <Provider store={store}>
                 <div>

@@ -41,7 +41,6 @@ const getProducts = async (productName) => {
             items.push(data)
             return items
         })
-        console.log(items)
         const products = {
             author: {
                 name: 'Carolina',
@@ -91,7 +90,6 @@ const getDescription = async (id) => {
                     description: itemDescription.plain_text
                 }
             }
-            console.log(descriptionProduct);
             return descriptionProduct
         })
 

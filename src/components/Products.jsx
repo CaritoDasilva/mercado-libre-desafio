@@ -17,11 +17,7 @@ class Products extends Component {
 
     componentDidMount() {
         this.props.showProducts()
-        console.log(this.props.products)
-
     }
-
-
 
 
     render() {
