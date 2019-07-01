@@ -13,11 +13,14 @@ import { connect, Provider } from 'react-redux'
 import { showProducts } from '../actions/productsActions'
 import store from '../store'
 
+
+
 class Products extends Component {
 
     componentDidMount() {
         this.props.showProducts()
     }
+
 
 
     render() {

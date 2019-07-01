@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM } from './types'
+import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM, CLEAN_PRODUCTS, CLEAN_ITEMS } from './types'
 import axios from 'axios';
 
 
@@ -68,3 +68,17 @@ export const setItemDetail = (id) => {
         payload: id
     }
 }
+
+export const cleanProducts = () => {
+    return {
+        type: CLEAN_PRODUCTS,
+    }
+}
+
+export const cleanItems = () => {
+    return {
+        type: CLEAN_ITEMS,
+    }
+}
+
+

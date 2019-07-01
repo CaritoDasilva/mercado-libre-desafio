@@ -1,4 +1,4 @@
-import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM } from '../actions/types'
+import { GET_PRODUCTS, SHOW_PRODUCTS, CHANGE_SEARCHBOX, SHOW_ITEM, SET_ITEM, CLEAN_PRODUCTS, CLEAN_ITEMS } from '../actions/types'
 
 const initialState = {
     products: [],
@@ -32,6 +32,16 @@ export default function (state = initialState, action) {
             return {
                 ...state,
                 itemId: action.payload
+            }
+        case CLEAN_PRODUCTS:
+            return {
+                ...state,
+                products: []
+            }
+        case CLEAN_ITEMS:
+            return {
+                ...state,
+                item: {}
             }
         default:
             return state;
