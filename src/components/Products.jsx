@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import free_shipping_picture from '../assets/ic_shipping@2x.png.png.png'
 import './Components.scss'
 
 
@@ -40,7 +41,13 @@ class Products extends Component {
                                                 </Col>
                                                 <Col className="priceProductContainer" md={4}>
                                                     <ul>
-                                                        <li className="productPrice">${product.price.amount}</li>
+
+                                                        <li className="productPrice">${product.price.amount}
+                                                            <span>
+                                                                {product.free_shipping === true ?
+                                                                    <img className="freeshipping" src={free_shipping_picture} alt="envío gratuito" />
+                                                                    : null}
+                                                            </span> </li>
                                                         <li className="productTitle">{product.title}</li>
                                                     </ul>
                                                 </Col>

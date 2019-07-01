@@ -45,6 +45,12 @@
     .productPrice {
         font-size: 24px;
         margin-left: 16px;
+        margin-bottom: 32px;
+        .freeshipping {
+            width: 10%;
+    margin-bottom: 3%;
+    margin-left: 5%;
+        }
     }
     .productTitle {
         font-size: 18px;

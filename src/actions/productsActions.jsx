@@ -7,7 +7,7 @@ export const getProducts = (product) => async dispatch => {
         if (product === undefined) {
             product = 'mesa'
         }
-        const url = `http://localhost:8080/products/${product}`
+        const url = `https://mercado-libre-desafio.herokuapp.com/products/${product}`
         const response = await axios({
             method: 'get',
             baseURL: url,
@@ -42,7 +42,7 @@ export const changeSearchBoxValue = (value) => {
 
 export const getItemDetail = (id) => async dispatch => {
     try {
-        const url = `http://localhost:8080/${id}/description`
+        const url = `https://mercado-libre-desafio.herokuapp.com/${id}/description`
         const response = await axios({
             method: 'get',
             baseURL: url,
