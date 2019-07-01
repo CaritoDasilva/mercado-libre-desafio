@@ -30,7 +30,7 @@ class Item extends Component {
                             <Col className="productContainer" md={{ span: 10, offset: 1 }}>
                                 <Row className="rowContainer">
                                     <Row>
-                                        <Col md={6}>
+                                        <Col md={{ span: 6, offset: 1 }}>
                                             <img className="photoDescription" src={item.picture} alt="" />
                                         </Col>
                                         <Col md={{ span: 3, offset: 1 }}>

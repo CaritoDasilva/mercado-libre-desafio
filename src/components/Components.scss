@@ -25,10 +25,6 @@
     background-color: #EEEEEE;
 }
 
-.product.Container {
-}
-.colContainer {
-}
 .rowContainer{
     background-color: #FFFFFF;
     padding-top: 32px;
@@ -86,7 +82,8 @@ ol.breadcrumb {
 .photoDescription {
     width: 680px;
     height: 680px;
-    padding-right: 5%;
+    padding-right: 15%;
+    overflow: hidden;
 }
 
 .conditionDescription {
